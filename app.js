@@ -18,6 +18,17 @@ const warning = document.querySelector('#warning');
 const plan = document.querySelector('#plan');
 const braceGuide = document.querySelector('#brace-guide');
 
+function poseArt(key) {
+  const kind = ['supportedBridge'].includes(key) ? 'bridge' : ['breath', 'chairCatCow', 'chairWarrior', 'seatedPress'].includes(key) ? 'seat' : ['heelSlides', 'reclinedTree', 'legsUp', 'rest', 'weightedRaise'].includes(key) ? 'lying' : 'ankle';
+  const art = {
+    seat: '<circle cx="52" cy="23" r="8"/><path d="M52 32v23m0-14 17 10m-17-10-17 10M35 67h34M42 55v12m20-12v12"/>',
+    lying: '<circle cx="29" cy="50" r="7"/><path d="M36 51h28l15-16M47 51l19 18M66 69h21M45 69H25"/>',
+    bridge: '<circle cx="24" cy="59" r="7"/><path d="M31 58h18l17-22 19 25M49 58l20 18m16-15 8 15M39 76H22"/>',
+    ankle: '<circle cx="49" cy="27" r="8"/><path d="M49 36v21m0-12-17 12m17-12 17 12M39 80l10-23 10 23M31 80h36"/>'
+  };
+  return `<div class="pose-art ${kind}" aria-label="Схематичная иллюстрация позы" role="img"><svg viewBox="0 0 100 100" aria-hidden="true">${art[kind]}</svg></div>`;
+}
+
 function build() {
   const level = document.querySelector('#level').value;
   const duration = document.querySelector('#duration').value;
@@ -61,7 +72,7 @@ function build() {
   if (duration === '20' && level === 'regular' && !sensitive) items.splice(-1, 0, 'legsUp');
   title.textContent = walkingPain ? 'Йога без опоры' : sensitive ? 'Бережная йога' : level === 'beginner' ? 'Мягкое начало' : 'Спокойная устойчивость';
   note.textContent = walkingPain ? 'Выполняйте только лёжа или сидя, в очень небольшой амплитуде. Прекратите, если упражнение усиливает боль. Этот режим не заменяет осмотр: если боль при ходьбе не проходит или мешает обычным делам, обратитесь к врачу или физиотерапевту.' : sensitive ? 'Только мягкая амплитуда: без глубокого сгибания, приседаний и балансов на одной ноге. Уменьшите время поз примерно на треть и остановитесь, если дискомфорт нарастает.' : 'Не стремитесь к глубине позы: ровное спокойное дыхание важнее амплитуды. Между позами делайте несколько свободных вдохов.';
-  list.innerHTML = items.map((key, i) => { const ex = sets[key]; return `<article class="exercise"><span class="number">0${i + 1}</span><div><h3>${ex.name}</h3><p>${ex.description}</p></div><span class="dose">${ex.dose}</span></article>`; }).join('');
+  list.innerHTML = items.map((key, i) => { const ex = sets[key]; return `<article class="exercise"><span class="number">0${i + 1}</span>${poseArt(key)}<div><h3>${ex.name}</h3><p>${ex.description}</p></div><span class="dose">${ex.dose}</span></article>`; }).join('');
   document.querySelector('#complete').classList.remove('done');
   document.querySelector('#complete').textContent = 'Отметить практику';
 }
