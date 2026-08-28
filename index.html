@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Йога для коленей — ежедневная практика</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <p class="eyebrow">МЯГКАЯ ЙОГА КАЖДЫЙ ДЕНЬ</p>
+        <h1>Спокойные колени,<br /><em>свободное движение.</em></h1>
+        <p class="intro">Соберите бережную йога-практику на сегодня — с учётом самочувствия и свободного времени.</p>
+      </section>
+
+      <section class="builder" aria-labelledby="builder-title">
+        <div class="section-heading">
+          <span class="step">01</span>
+          <h2 id="builder-title">Настройте практику</h2>
+        </div>
+        <div class="controls">
+          <label>Ваш уровень
+            <select id="level">
+              <option value="beginner">Начинаю или возвращаюсь</option>
+              <option value="regular">Занимаюсь регулярно</option>
+            </select>
+          </label>
+          <label>Время
+            <select id="duration">
+              <option value="10">10 минут</option>
+              <option value="15" selected>15 минут</option>
+              <option value="20">20 минут</option>
+            </select>
+          </label>
+          <label>Как чувствуют себя колени?
+            <select id="comfort">
+              <option value="good">Комфортно</option>
+              <option value="sensitive">Небольшая чувствительность</option>
+              <option value="walkingPain">Боль при ходьбе</option>
+              <option value="pain">Есть боль или отёк</option>
+            </select>
+          </label>
+          <label>Поддержка для колена
+            <select id="brace">
+              <option value="none">Без наколенника</option>
+              <option value="soft">Мягкий наколенник / компрессионный рукав</option>
+              <option value="prescribed">Шарнирный или назначенный врачом ортез</option>
+            </select>
+          </label>
+          <label>Инвентарь
+            <select id="equipment">
+              <option value="none">Без веса</option>
+              <option value="dumbbells">Лёгкие гантели</option>
+              <option value="ankleWeights">Утяжелители на лодыжки</option>
+            </select>
+          </label>
+        </div>
+        <button id="generate" class="primary">Собрать практику <span>→</span></button>
+      </section>
+
+      <section id="brace-guide" class="brace-guide" aria-live="polite"></section>
+
+      <section id="warning" class="warning hidden" role="alert">
+        <strong id="warning-title">Сегодня лучше сделать паузу.</strong>
+        <p id="warning-text">При боли, отёке, блокировке сустава, нестабильности или боли после травмы не выполняйте упражнения. Обратитесь к врачу или физиотерапевту.</p>
+      </section>
+
+      <section id="plan" class="plan" aria-live="polite">
+        <div class="plan-top">
+          <div>
+          <p class="eyebrow">ВАША ПРАКТИКА НА СЕГОДНЯ</p>
+            <h2 id="plan-title">Мягкая опора</h2>
+          </div>
+          <div class="plan-time"><span id="total-time">15</span><small>минут</small></div>
+        </div>
+        <p id="plan-note" class="plan-note"></p>
+        <div id="exercise-list" class="exercise-list"></div>
+        <div class="finish-row">
+          <button id="complete" class="complete">Отметить практику</button>
+          <p id="streak" class="streak">Сегодня — хороший день, чтобы начать.</p>
+        </div>
+      </section>
+
+      <section class="tips">
+        <div class="section-heading"><span class="step">02</span><h2>Три правила комфорта</h2></div>
+        <div class="tip-grid">
+          <article><b>01</b><h3>Без острой боли</h3><p>Лёгкое мышечное усилие нормально. Боль в суставе — сигнал остановиться.</p></article>
+          <article><b>02</b><h3>Медленный темп</h3><p>Двигайтесь плавно, не проваливайте колено внутрь и дышите ровно.</p></article>
+          <article><b>03</b><h3>Регулярность важнее</h3><p>Короткий комплекс каждый день полезнее редких интенсивных занятий.</p></article>
+        </div>
+      </section>
+      <footer>Это информационный инструмент, а не медицинская рекомендация. Назначения врача по ортезу имеют приоритет.</footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
